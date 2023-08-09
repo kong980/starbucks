@@ -29,7 +29,7 @@ const badgeEl = document.querySelector('header .badges');
 // }, 300)); //(함수, 실행 시간 주기)
 
 
-/* gsap cdn 검색*/
+/* gsap cdn 검색 */
 
 window.addEventListener("scroll", _.throttle(() => {
     if(window.scrollY > 500){
@@ -39,3 +39,36 @@ window.addEventListener("scroll", _.throttle(() => {
         gsap.to(badgeEl, .6, {opacity:1, display:"block"});
     }
 }, 300));
+
+/* Visual Image를 순차적으로 나타나게 하는 기능 */
+const fadeEls = document.querySelectorAll(".visual .fade-in");
+
+fadeEls.forEach((el, cnt) =>{
+    gsap.to(el, 1, {opacity:1, delay:(cnt+1)*.7}); //delay : 시간 차를 적용해 각각의 옵션이 따로따로 진행
+});
+
+/* Swiper */
+
+new Swiper(".notice-line .swiper", {
+    // Optional parameters
+    direction: 'vertical',
+    loop: true,
+    autoplay:true
+});
+
+new Swiper(".promotion .swiper", {
+    direction: 'horizontal',
+    slidesPerView: 3,
+    loop: true,
+    spaceBetween: 10,
+    centeredSlides: true,
+    autoplay: {delay: 5000}, //autoplay 시간 간격 설정
+    pagination: {
+        el: '.swiper-pagination',
+        clickable: true
+      },
+      navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
+      }
+});
