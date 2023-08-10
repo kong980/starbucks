@@ -49,14 +49,14 @@ fadeEls.forEach((el, cnt) =>{
 
 /* Swiper */
 
-new Swiper(".notice-line .swiper", {
+new Swiper(".notice-line .swiper-container", {
     // Optional parameters
     direction: 'vertical',
     loop: true,
     autoplay:true
 });
 
-new Swiper(".promotion .swiper", {
+new Swiper(".promotion .swiper-container", {
     direction: 'horizontal',
     slidesPerView: 3,
     loop: true,
@@ -72,3 +72,55 @@ new Swiper(".promotion .swiper", {
         prevEl: '.swiper-button-prev',
       }
 });
+
+
+// Promotion 토글
+
+const promotionEl = document.querySelector(".promotion");
+const promotionToggleBtn = document.querySelector(".toggle-promotion");
+let isHidePromotion = false;
+
+promotionToggleBtn.addEventListener("click", () => {
+    if(isHidePromotion){
+        promotionEl.classList.remove("hide");
+        isHidePromotion = false;
+    }else{
+        promotionEl.classList.add("hide");
+        isHidePromotion = true;
+    }
+});
+
+
+// 떠 다니는(부유하는) 요소를 만드는 함수
+
+function rand(min, max){
+    return parseFloat((Math.random()*(max-min)+min).toFixed(2))
+}
+
+function floatingObject(selector, delay, size){
+    gsap.to(selector, rand(1.5, 2.5), {
+        y: rand(10,size),
+        repeat: -1,
+        yoyo: true,
+        delay: rand(0,delay),
+        ease: Power1.easeInOut
+    })
+}
+
+floatingObject(".floating1", 1, 15);
+floatingObject(".floating2", .5, 15);
+floatingObject(".floating3", 1.5, 20);
+
+
+/* SEASON PRODUCT */
+const spyEls = document.querySelectorAll("section.scroll-spy");
+
+spyEls.forEach(function(spyEl){
+    new ScrollMagic
+    .Scene({ //감시할 장면(Scene) 추가
+        triggerElement: spyEl, //보여짐 여부를 감시할 요소 지정
+        triggerHook: .8 //화면의 80% 지점에서 보여짐 여부 감시
+    })
+    .setClassToggle(spyEl, 'show') //요소가 화면에 보이면 show 클래스 추가
+    .addTo(new ScrollMagic.Controller()); //컨트롤러에 장면을 할당(필수!!)
+})
