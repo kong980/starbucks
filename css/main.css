@@ -812,17 +812,17 @@ header .badges .badge {
     flex-wrap: wrap;
 }
 
-.pick-your-favorite .inner .text-group .title{
+.pick-your-favorite .inner .text-group .title {
     margin-bottom: 40px;
 }
 
-.pick-your-favorite .inner .text-group .description{
+.pick-your-favorite .inner .text-group .description {
     margin-bottom: 40px;
 }
 
 /* RESERVE STORE */
 
-.reserve-store{
+.reserve-store {
     background-image: url('../images/reserve_store_bg.jpg');
     background-repeat: no-repeat;
     background-size: cover;
@@ -830,23 +830,246 @@ header .badges .badge {
     background-position: center;
 }
 
-.reserve-store .inner{
+.reserve-store .inner {
     height: 600px;
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-.reserve-store .inner .medal{
+.reserve-store .inner .medal {
     width: 334px;
-    height: 334px;  
+    height: 334px;
     perspective: 600px;
 }
 
-.reserve-store .inner .medal:hover{
+.reserve-store .medal .front {
+    transform: rotateY(0deg);
+}
+
+.reserve-store .medal:hover .front {
+    transform: rotateY(-180deg);
+}
+
+.reserve-store .medal .back {
+    transform: rotateY(-180deg);
+}
+
+.reserve-store .medal:hover .back {
+    transform: rotateY(0deg);
+}
+
+.reserve-store .medal .front,
+.reserve-store .medal .back {
+    backface-visibility: hidden;
+    position: absolute;
+    width: inherit;
+    height: inherit;
+    transition: 1s;
+}
+
+.reserve-store .inner .medal .back .btn {
+    position: absolute;
+    margin: auto;
+    top: 240px;
+    left: 0;
+    right: 0;
+}
+
+/* FIND THE STORE */
+
+.find-store {
+    background-image: url('../images/find_store_bg.jpg');
 
 }
 
-.reserve-store .inner .medal .back{
+.find-store .inner {
+    height: 400px;
+}
 
+.find-store .inner .texture1 {
+    position: absolute;
+    top: 0;
+    left: 400px;
+}
+
+.find-store .inner .texture2 {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+
+}
+
+.find-store .inner .picture {
+    position: absolute;
+    border-radius: 50%;
+}
+
+.find-store .inner .picture.picture1 {
+    top: -60px;
+}
+
+.find-store .inner .picture.picture2 {
+    top: 150px;
+    left: 250px;
+}
+
+.find-store .inner .text-group {
+    position: absolute;
+    right: 165px;
+    top: 120px;
+}
+
+.find-store .inner .text-group .title {
+    margin-bottom: 20px;
+}
+
+.find-store .inner .text-group .description {
+    margin-bottom: 20px;
+}
+
+/* AWARDS */
+
+.awards {
+    background-color: #272727;
+}
+
+.awards .inner {
+    padding: 40px 0;
+}
+
+.awards .inner .swiper-container {
+    width: 100%;
+    height: 40px;
+}
+
+.awards .inner .swiper-prev {
+    left: -100px;
+}
+
+.awards .inner .swiper-next {
+    right: -100px;
+}
+
+.awards .inner .swiper-prev,
+.awards .inner .swiper-next {
+    width: 42px;
+    height: 42px;
+    color: #fff;
+    border: 2px solid #fff;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    outline: none;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    opacity: .3;
+    cursor: pointer;
+    transition: .4s;
+}
+
+.awards .inner .swiper-prev:hover,
+.awards .inner .swiper-next:hover {
+    color: #272727;
+    background-color: #fff;
+}
+
+/* FOOTER */
+
+footer {
+    border-top: 1px solid #333;
+    background-color: #272727;
+}
+
+footer .inner {
+    padding: 40px 0 60px 0;
+}
+
+footer .inner .menu {
+    display: flex;
+    justify-content: center;
+}
+
+footer .inner .menu li {
+    position: relative;
+}
+
+footer .inner .menu a {
+    color: #CCC;
+    font-size: 12px;
+    display: block;
+    padding: 15px;
+    font-weight: 700;
+}
+
+footer .inner .menu .green {
+    color: green;
+}
+
+footer .inner .btn-group {
+    display: flex;
+    margin-top: 20px;
+    justify-content: center;
+
+}
+
+footer .inner .btn-group .btn {
+    font-size: 12px;
+    margin-right: 10px;
+
+}
+
+footer .inner .btn-group .btn:last-child {
+    margin-right: 0;
+
+}
+
+footer .inner .info {
+    margin-top: 30px;
+    text-align: center;
+
+}
+
+footer .inner .info span {
+    color: #999;
+    font-size: 12px;
+    margin-right: 20px;
+}
+
+footer .inner .info span:last-child {
+    margin-right: 0;
+}
+
+footer .inner .copyright {
+    margin-top: 10px;
+    color: #999;
+    font-size: 12px;
+    text-align: center;
+}
+
+footer img {
+    margin: 30px auto 0;
+}
+
+
+/* SCROLL TO TOP */
+
+#to-top {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    z-index: 9;
+    width: 42px;
+    height: 42px;
+    background-color: #333;
+    color: #fff;
+    border: 2px solid #fff;
+    border-radius: 10px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
